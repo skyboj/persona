@@ -1,0 +1,68 @@
+[
+  {
+    "prv": {
+      "org": {
+        "admin": {
+          "id": 1001,
+          "fname": "Sarah",
+          "sname": "Johnson",
+          "contacts": {
+            "email": "sarah.johnson@university.edu",
+            "phoneNumber": "+1-555-0123"
+          }
+        },
+        "name": "University of Technology",
+        "contacts": {
+          "address": {
+            "town": "Boston"
+          }
+        },
+        "langs": ["English", "French"]
+      }
+    }
+  },
+  {
+    "prv": {
+      "org": {
+        "admin": {
+          "id": 1002,
+          "fname": "Michael",
+          "sname": "Chen",
+          "contacts": {
+            "email": "m.chen@healthcare.org",
+            "phoneNumber": "+1-555-0456"
+          }
+        },
+        "name": "Metropolitan Healthcare System",
+        "contacts": {
+          "address": {
+            "town": "San Francisco"
+          }
+        },
+        "langs": ["English", "Mandarin", "Spanish"]
+      }
+    }
+  },
+  {
+    "prv": {
+      "org": {
+        "admin": {
+          "id": 1003,
+          "fname": "Elena",
+          "sname": "Rodriguez",
+          "contacts": {
+            "email": "elena.rodriguez@research.org",
+            "phoneNumber": "+1-555-0789"
+          }
+        },
+        "name": "Advanced Research Institute",
+        "contacts": {
+          "address": {
+            "town": "Austin"
+          }
+        },
+        "langs": ["English", "Spanish", "Portuguese"]
+      }
+    }
+  }
+] 
