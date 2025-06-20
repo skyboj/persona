@@ -70,4 +70,4 @@ logs/
 
 # Data and external models
 data/
-stable-diffusion-webui/
+stable-diffusion-webui/.env

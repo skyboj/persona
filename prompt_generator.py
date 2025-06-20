@@ -10,12 +10,16 @@ import openai
 from typing import List, Tuple, Dict, Any, Optional
 import json
 import time
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Database configuration
 DATABASE_FILE = "profiles.db"
 
 # Prompt templates
-POSITIVE_PROMPT_TEMPLATE = """(RAW photo, photorealistic, masterpiece, high-detail, sharp focus, 8k uhd:1.2), (photographed by a professional photographer), (extremely detailed skin, skin pores, moles, freckles, imperfections), (natural skin texture),
+POSITIVE_PROMPT_TEMPLATE = """(RAW photo, photorealistic, masterpiece, high-detail, sharp focus, 8k uhd:1.2), (photographed by a professional photographer), (natural skin texture),
 {professional photo|shot on iphone|selfie|{old|vintage|faded} selfie}, a portrait of a {18-25|24-35|30-40|40-50|50-60} year old woman, ({smile|slight smile|serious expression|tired expression}:1.1),
 (natural lighting), (subtle background)"""
 

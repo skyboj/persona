@@ -468,6 +468,25 @@ def view_prompts() -> None:
     
     conn.close()
 
+def reset_profile_status(profile_id: int) -> None:
+    """Reset generation status for a specific profile."""
+    conn = sqlite3.connect(DATABASE_FILE)
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+        UPDATE admin_profiles 
+        SET prompt_generated = 0, image_generated = 0, positive_prompt = NULL, negative_prompt = NULL, image_path = NULL
+        WHERE id = ?
+    """, (profile_id,))
+    
+    if cursor.rowcount > 0:
+        print(f"✓ Reset status for profile ID {profile_id}")
+    else:
+        print(f"✗ Profile ID {profile_id} not found")
+    
+    conn.commit()
+    conn.close()
+
 def main():
     """Main function for database utilities."""
     parser = argparse.ArgumentParser(description='Database utilities for AI Persona Image Generator')
@@ -483,6 +502,7 @@ def main():
     parser.add_argument('--view-subcategory', type=str, nargs=2, metavar=('CATEGORY', 'SUBCATEGORY'), 
                        help='View profiles by category and subcategory')
     parser.add_argument('--reset', action='store_true', help='Reset all generation status (for testing)')
+    parser.add_argument('--reset-profile', type=int, help='Reset generation status for specific profile ID')
     parser.add_argument('--view-image-paths', action='store_true', help='View all image paths in the database')
     
     args = parser.parse_args()
@@ -518,6 +538,8 @@ def main():
             reset_generation_status()
         else:
             print("Reset cancelled.")
+    elif args.reset_profile:
+        reset_profile_status(args.reset_profile)
     elif args.view_image_paths:
         view_image_paths()
     else:
